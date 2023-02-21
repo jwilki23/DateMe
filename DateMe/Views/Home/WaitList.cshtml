@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Wait List";
+}
+
+@model List<ApplicationResponse>
+
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Phone</td>
+            <td>Major</td>
+            <td>Creeper/Stalker</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.FirstName</td>
+                    <td>@x.LastName</td>
+                    <td>@x.Age</td>
+                    <td>@x.Phone</td>
+                    <td>@x.Major.MajorName</td>
+                    <td>@x.CreeperStalker</td>
+
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.ApplicationID">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" >Delete</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
